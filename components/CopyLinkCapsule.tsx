@@ -22,14 +22,14 @@ export default function CopyLinkCapsule() {
       onClick={handleCopy}
       initial={false}
       animate={{
-        backgroundColor: copied ? 'var(--md-sys-color-primary-container)' : 'var(--md-sys-color-surface-variant)',
+        backgroundColor: copied ? 'var(--md-sys-color-primary-container)' : 'var(--md-sys-color-surface)',
         scale: copied ? [1, 1.2, 0.95, 1.05, 1] : 1,
       }}
       transition={{
         backgroundColor: { duration: 0.3 },
         scale: { duration: 1, times: [0, 0.2, 0.4, 0.7, 1] },
       }}
-      className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm border border-md-outline/15 shadow-md-1 ${
+      className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm border border-md-outline/30 shadow-md-1 ${
         copied ? 'text-md-on-primary-container' : 'text-md-on-surface'
       }`}
     >

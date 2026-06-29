@@ -23,12 +23,14 @@ export default function Sidebar({
   const featured = BlogPosts.filter(p => p.highlighted);
   const [pfp, setPfp] = React.useState('/pfp/cat.png');
 
+  const isDesktop = context === 'desktop';
+
   return (
-    <aside className={`w-full lg:w-96 lg:h-[calc(100vh-4.5rem)] sticky top-6 self-start ${className}`}>
-      <div className="h-full flex flex-col bg-md-surface-variant/40 backdrop-blur-xl border border-white/10 rounded-[40px] overflow-hidden shadow-md-2 p-8 gap-10">
+    <aside className={`w-full h-full lg:w-96 lg:h-[calc(100vh-5rem)] lg:sticky lg:top-10 self-start ${className}`}>
+      <div className="h-full lg:ml-10 flex flex-col bg-md-surface-variant dark:bg-md-surface-variant border border-md-outline/15 dark:border-white/5 rounded-[40px] shadow-md-2 p-8 gap-10">
 
         <Magnetic strength={0.15}>
-          <div className="bg-white/5 p-6 rounded-t-[30px] rounded-b-[20px] flex items-center gap-4 border border-white/5 shadow-inner group shrink-0 cursor-pointer">
+          <div className="bg-md-surface dark:bg-white/5 p-6 rounded-t-[30px] rounded-b-[20px] flex items-center gap-4 border border-md-outline/25 dark:border-white/5 shadow-inner group shrink-0 cursor-pointer">
             <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-md-primary/30 p-1 shadow-md flex-shrink-0 transition-transform duration-500 group-hover:scale-105">
               <Image
                 src={pfp}
@@ -59,14 +61,14 @@ export default function Sidebar({
                 whileHover={{
                   x: context === 'desktop' ? 8 : 0,
                   y: context === 'mobile' ? -4 : 0,
-                  backgroundColor: activePostId === post.id ? undefined : 'rgba(255,255,255,0.12)',
+                  backgroundColor: activePostId === post.id ? undefined : 'var(--md-sys-color-hover)',
                   transition: { type: 'spring', stiffness: 600, damping: 25 },
                 }}
                 whileTap={{ scale: 0.97 }}
-                className={`w-full text-center p-6 first:rounded-[30px] first:rounded-b-[20px] rounded-[20px] last:rounded-b-[30px] group relative  shrink-0 transition-[border-color,box-shadow] duration-200 opacity-80 ${
+                className={`w-full h-40 text-left p-4 first:rounded-[30px] first:rounded-b-[20px] rounded-[20px] last:rounded-b-[30px] group relative shrink-0 transition-[background-color,border-color,box-shadow] duration-200 opacity-80 ${
                   activePostId === post.id
                     ? 'border-transparent text-md-on-primary shadow-md-2'
-                    : 'bg-white/5 border-white/5 text-md-on-surface hover:border-white/20'
+                    : 'bg-md-surface/80 dark:bg-white/5 border border-md-outline/15 dark:border-white/5 text-md-on-surface hover:bg-md-surface dark:hover:bg-white/10 hover:border-md-outline/25 dark:hover:border-white/20 shadow-sm'
                 }`}
               >
                 {activePostId === post.id && (
@@ -106,7 +108,7 @@ export default function Sidebar({
               href="https://conspiracy.rip/discord"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-md-secondary-container text-md-on-secondary-container py-5 rounded-[20px] flex items-center justify-center gap-2 font-bold hover:bg-md-secondary-container/80 transition-colors"
+              className="flex-1 bg-md-secondary-container border-3 border-md-outline text-md-on-secondary-container py-5 rounded-[20px] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform font-bold hover:bg-md-secondary-container/80 transition-colors"
             >
               <MessageCircle size={20} />
               <span>discord</span>
@@ -115,7 +117,7 @@ export default function Sidebar({
               href="https://github.com/conspiracyrip"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-md-secondary-container text-md-on-secondary-container py-5 rounded-[20px] flex items-center justify-center gap-2 font-bold hover:bg-md-secondary-container/80 transition-colors"
+              className="flex-1 bg-md-secondary-container border-3 border-md-outline text-md-on-secondary-container py-5 rounded-[20px] flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform font-bold hover:bg-md-secondary-container/80 transition-colors"
             >
               <Github size={20} />
               <span>guthib</span>

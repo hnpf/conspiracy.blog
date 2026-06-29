@@ -41,6 +41,24 @@
   --md-sys-color-surface-variant: #E7E0EC;
   --md-sys-color-on-surface-variant: #49454F;
   --md-sys-color-outline: #79747E;
+  --md-sys-color-hover: rgba(0, 0, 0, 0.06);
+
+  /* theme aware cat colors */
+  --color-design: #6750A4;
+  --color-tech: #0061A4;
+  --color-development: #006A4E;
+  --color-ux: #BA1A1A;
+  --color-default: #6750A4;
+
+  /* syntax highlighting for light mode */
+  --code-comment: #6a737d;
+  --code-keyword: #d73a49;
+  --code-function: #6f42c1;
+  --code-string: #032f62;
+  --code-number: #005cc5;
+  --code-operator: #d73a49;
+  --code-punctuation: #24292e;
+  --code-variable: #e36209;
 
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
@@ -64,6 +82,24 @@
     --md-sys-color-surface-variant: #1D1B20; 
     --md-sys-color-on-surface-variant: #CAC4D0;
     --md-sys-color-outline: #49454F;
+    --md-sys-color-hover: rgba(255, 255, 255, 0.12);
+
+    /* theme aware category colors (dark mode) */
+    --color-design: #D0BCFF;
+    --color-tech: #A0C9FF;
+    --color-development: #B8EBD0;
+    --color-ux: #FFB4AB;
+    --color-default: #D0BCFF;
+
+    /* code syntax highlighting vars for dark mode */
+    --code-comment: #8b949e;
+    --code-keyword: #ff7b72;
+    --code-function: #d2a8ff;
+    --code-string: #a5d6ff;
+    --code-number: #79c0ff;
+    --code-operator: #ff7b72;
+    --code-punctuation: #c9d1d9;
+    --code-variable: #ffa657;
   }
 }
 
@@ -73,7 +109,7 @@ body {
 
 /* scroll styling: ; */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 8px;/* prism syntax highlighting */
 }
 
 ::-webkit-scrollbar-track {
@@ -94,15 +130,93 @@ body {
   background-clip: content-box;
 }
 
-/* typography polishing here */
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
+/* prism syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: var(--code-punctuation);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--code-number);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: var(--code-string);
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: var(--code-operator);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: var(--code-keyword);
+  font-weight: 600;
+}
+
+.token.function,
+.token.class-name {
+  color: var(--code-function);
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--code-variable);
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+/* markdown n typography custom rules */
+.markdown-body {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4 {
+  color: var(--md-sys-color-on-surface);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
 }
 
 .markdown-body p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }

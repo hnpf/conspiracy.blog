@@ -11,11 +11,11 @@ import { Menu, X, ArrowUp, ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 
 const categoryColors: Record<string, string> = {
-  Design: '#D0BCFF',
-  Tech: '#A0C9FF',
-  Development: '#B8EBD0',
-  UX: '#FFB4AB',
-  default: '#D0BCFF',
+  Design: 'var(--color-design)',
+  Tech: 'var(--color-tech)',
+  Development: 'var(--color-development)',
+  UX: 'var(--color-ux)',
+  default: 'var(--color-default)',
 }
 
 const SCROLL_THRESHOLD = 400
@@ -68,7 +68,7 @@ export default function BlogPage() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollTop}
-            className="fixed bottom-10 right-10 z-[60] w-16 h-16 bg-md-primary text-md-on-primary rounded-full shadow-md-3 flex items-center justify-center border-4 border-md-surface-variant transition-colors"
+            className="fixed bottom-10 right-10 z-[60] w-16 h-16 bg-md-primary text-md-on-primary rounded-full shadow-md-3 flex items-center justify-center border-4 border-md-primary/25 transition-colors"
           >
             <ArrowUp size={28} strokeWidth={3} />
           </motion.button>
@@ -159,7 +159,7 @@ export default function BlogPage() {
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 500, damping: 15 }}
                     onClick={handleBack}
-                    className="flex items-center gap-4 bg-md-primary text-md-on-primary pl-6 pr-10 py-4 rounded-full shadow-md-2 border-4 border-md-surface-variant group relative overflow-hidden"
+                    className="flex items-center gap-4 bg-md-primary text-md-on-primary pl-6 pr-10 py-4 rounded-full shadow-md-2 border-4 border-md-primary/25 group relative overflow-hidden"
                   >
                     <motion.div
                       animate={{ x: [0, -4, 0] }}
@@ -187,7 +187,7 @@ export default function BlogPage() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <h1 className="text-6xl md:text-9xl font-black text-md-on-surface tracking-tighter leading-[0.85] mb-6">
+                    <h1 className="text-5xl md:text-9xl font-black text-md-on-surface tracking-tighter leading-[0.85] mb-6">
                       conspiracy<span className="text-md-primary">.</span>blog
                     </h1>
                     <p className="text-2xl md:text-3xl text-md-on-surface-variant font-bold max-w-3xl leading-snug opacity-80 tracking-tight">
